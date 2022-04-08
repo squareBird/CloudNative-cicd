@@ -17,5 +17,5 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag mypython:latest
 
-    - name: Docker run
+    - name: Docker run image
       run: docker run mypython:latest
