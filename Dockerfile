@@ -1,4 +1,3 @@
 FROM python
 COPY . .
-CMD ["test.py"]
-ENTRYPOINT ["python3"]
+CMD ["python3","test.py"]
