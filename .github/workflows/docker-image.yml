@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag mypython:$(date +%s)
+      run: docker build . --file Dockerfile --tag mypython:latest
 
     - name: run docker
-      run: docker run mypython
+      run: docker run mypython:latest
