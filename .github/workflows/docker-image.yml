@@ -10,12 +10,15 @@ jobs:
 
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag mypython:latest
 
-    - name: run docker
-      run: docker run mypython:latest
+    - name: Harbor login
+      run: docker login 52.79.185.138 -u admin -p Cloudclub123
+
+    - name: Push image to Harbor
+      run: docker push 52.79.185.138/junggyu/mypython:latest
