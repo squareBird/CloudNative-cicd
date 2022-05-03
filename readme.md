@@ -16,13 +16,18 @@ $ adduser cicd
 ```
 
 # 설치파일 다운로드
+
+```
 $ mkdir actions-runner && cd actions-runner# Download the latest runner package
 $ curl -o actions-runner-linux-x64-2.289.2.tar.gz -L https://github.com/actions/runner/releases/download/v2.289.2/actions-runner-linux-x64-2.289.2.tar.gz# Optional: Validate the hash
 $ echo "7ba89bb75397896a76e98197633c087a9499d4c1db7603f21910e135b0d0a238  actions-runner-linux-x64-2.289.2.tar.gz" | shasum -a 256 -c# Extract the installer
 $ tar xzf ./actions-runner-linux-x64-2.289.2.tar.gz
+```
 
 # 설치 및 설정
-./config.sh --url https://github.com/squareBird/CloudNative-cicd --token ANL7BN3LUCFPI3JE5FCLL7LCJ7PL6
+
+```
+$ ./config.sh --url https://github.com/squareBird/CloudNative-cicd --token ANL7BN3LUCFPI3JE5FCLL7LCJ7PL6
 
 # job 대기상태 돌입
 $ ./run.sh
@@ -32,13 +37,14 @@ $ ./run.sh
 $ runs-on: self-hosted
 ```
 
-<h2>Harbor Docker 인증서 추가</h2>
+## Harbor Docker 인증서 추가
 `Harbor`는 Private Repository이며 `Harbor`의 이미지를 `pull` 또는 `push`하기 위해서는 인증 절차가 필요
 
 `self-hosted runner` 서버에 `Harbor 인증서`를 추가하여 권한 부여.
 
 
-<h4>먼저 Harbor가 설치된 서버에서 self-hosted runner 서버로 인증서 전송</h4>
+## 먼저 Harbor가 설치된 서버에서 self-hosted runner 서버로 인증서 전송
+
 ```bash
 # Harbor가 설치된 서버의 인증서 확인
 $ Harbor-server# ls
