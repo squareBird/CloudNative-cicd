@@ -12,6 +12,7 @@
 # self-hosted runner 실행용 계정 생성
 # sudo 권한으로 실행 불가
 $ adduser cicd
+```
 
 # 설치파일 다운로드
 $ mkdir actions-runner && cd actions-runner# Download the latest runner package
