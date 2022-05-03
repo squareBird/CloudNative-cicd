@@ -54,7 +54,8 @@ $ Harbor-server# scp * root@{self-hosted runner 서버 IP}:/docker/etc/certs.d/{
 ```
 
 
-<h4>self-hosted server의 Docker 재기동하여 인증서 적용</h4>
+## self-hosted server의 Docker 재기동하여 인증서 적용
+
 ```bash
 # 도커 재시작
 $ self-hosted-runner# systemctl restart docker
