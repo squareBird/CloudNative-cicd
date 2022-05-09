@@ -1,0 +1,34 @@
+name: Junggyu
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: self-hosted
+    env:
+      working-directory: ./Junggyu
+    steps:
+    - uses: actions/checkout@v3
+    
+    # 이미지 빌드
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag mypython:latest
+      working-directory: ${{ env.working-directory }}
+
+      # Harbor Login
+    - name: Harbor login
+      run: docker login 52.79.185.138 -u admin -p Cloudclub123
+    
+    # 이미지 Tagging
+    - name: Image tagging
+      run: docker tag mypython:latest 52.79.185.138/junggyu/junggy:latest
+
+    # 이미지 Push
+    - name: Push image to Harbor
+      run: docker push 52.79.185.138/junggyu/junggy:latest
